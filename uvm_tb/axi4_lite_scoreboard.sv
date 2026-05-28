@@ -48,6 +48,7 @@ class axi4_lite_scoreboard extends uvm_scoreboard;
 
     // Callback for monitor_imp analysis import
     function void write(axi4_lite_transaction txn);
+        logic [31:0] expected_data;
         if (txn.trans_type == axi4_lite_transaction::WRITE) begin
             total_write_requests++;
             `uvm_info("SCOREBOARD",
@@ -78,7 +79,7 @@ class axi4_lite_scoreboard extends uvm_scoreboard;
                 UVM_MEDIUM)
 
             // Get expected data from reference memory
-            logic [31:0] expected_data = ref_memory[txn.araddr[6:2]];
+            expected_data = ref_memory[txn.araddr[6:2]];
 
             // Verify data matches reference
             if (txn.rdata != expected_data) begin
