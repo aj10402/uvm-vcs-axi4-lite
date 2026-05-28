@@ -14,6 +14,7 @@ echo "=== Compiling AXI4-Lite Design and Testbench with VCS ==="
 vcs -sverilog -full64 +warn=all \
     -ntb_opts uvm-1.2 \
     +incdir+. \
+    +timescale+1ns/1ps \
     axi4_lite_if.sv \
     axi4_lite_slave.sv \
     axi4_lite_assertions.sv \
