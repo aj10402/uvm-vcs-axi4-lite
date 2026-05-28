@@ -1,0 +1,26 @@
+// Synopsys VCS Configuration
+// Place this file in the work directory or root of your project
+
+// Disable GUI by default
+gui_mode off
+
+// Enable full optimization
+optimize full
+
+// Set work library
+work = work
+
+// Include UVM library
++incdir+$SYNOPSYS_SIM/uvm/uvm-1.2/src
+
+// Suppress common warnings
++nowarn
+
+// Enable assertions
++define+SYNOPSYS_SV
+
+// Waveform dump settings  
+$scope module (axi4_lite_tb_top)
+$var wire 64 @ ACLK $end
+$var wire 64 A ARESETN $end
+$upscope $end

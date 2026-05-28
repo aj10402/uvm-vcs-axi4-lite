@@ -1,0 +1,28 @@
+# VCS simulation artifacts
+work/
+logs/
+simv
+simv.daidir/
+csrc/
+ucli.key
+*.vcd
+*.fsdb
+*.vpd
+*.shm/
+DVEfiles/
+inter.vpd
+
+# Synopsys license/setup artifacts
+*.syn
+*.mr
+*.pvl
+*.syn
+
+# Chat/tool files
+chat.rapidgpt
+
+# Compiled/generated
+*.o
+*.a
+*.so
+*.d
