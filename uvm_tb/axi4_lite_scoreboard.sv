@@ -130,6 +130,7 @@ class axi4_lite_scoreboard extends uvm_scoreboard;
     endfunction
 
     function void report_phase(uvm_phase phase);
+        int total_errors;
         super.report_phase(phase);
 
         `uvm_info("SCOREBOARD", "========== SCOREBOARD FINAL REPORT ==========", UVM_MEDIUM)
@@ -141,7 +142,7 @@ class axi4_lite_scoreboard extends uvm_scoreboard;
         `uvm_info("SCOREBOARD", "Error Summary:", UVM_MEDIUM)
         `uvm_info("SCOREBOARD", $sformatf("  Data Mismatches:    %0d", data_mismatches), UVM_MEDIUM)
         `uvm_info("SCOREBOARD", $sformatf("  Response Errors:    %0d", response_errors), UVM_MEDIUM)
-        int total_errors = data_mismatches + response_errors;
+        total_errors = data_mismatches + response_errors;
 
         if (total_errors == 0 && (total_write_requests + total_read_requests) > 0) begin
             `uvm_info("SCOREBOARD", "", UVM_MEDIUM)
