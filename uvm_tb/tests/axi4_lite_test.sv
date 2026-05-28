@@ -1,3 +1,7 @@
+import uvm_pkg::*;
+`include "uvm_macros.svh"
+import axi4_lite_pkg::*;
+
 class axi4_lite_base_test extends uvm_test;
     
     `uvm_component_utils(axi4_lite_base_test)

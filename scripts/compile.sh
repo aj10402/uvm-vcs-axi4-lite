@@ -18,7 +18,7 @@ vcs -sverilog -full64 +warn=all \
     axi4_lite_slave.sv \
     axi4_lite_assertions.sv \
     axi4_lite_pkg.sv \
-    axi4_lite_test.sv \
+    tests/axi4_lite_test.sv \
     axi4_lite_tb.sv \
     -top axi4_lite_tb_top \
     -o simv \
