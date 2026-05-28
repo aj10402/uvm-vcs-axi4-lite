@@ -41,21 +41,9 @@ interface axi4_lite_if #(
         input ARREADY, RDATA, RRESP, RVALID;
     endclocking
 
-    clocking cb_slave @(posedge ACLK);
-        output AWREADY, WREADY, BRESP, BVALID;
-        output ARREADY, RDATA, RRESP, RVALID;
-        input AWADDR, AWVALID, WDATA, WSTRB, WVALID, BREADY;
-        input ARADDR, ARVALID, RREADY;
-    endclocking
-
     // Modport for Master
     modport master (
         clocking cb_master
-    );
-
-    // Modport for Slave
-    modport slave (
-        clocking cb_slave
     );
 
     // Modport for Monitor
