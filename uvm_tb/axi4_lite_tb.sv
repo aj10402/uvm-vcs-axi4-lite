@@ -1,5 +1,3 @@
-`timescale 1ns/1ps
-
 module axi4_lite_tb_top;
 
     import uvm_pkg::*;

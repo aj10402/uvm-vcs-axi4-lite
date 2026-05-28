@@ -56,7 +56,7 @@ class axi4_lite_monitor extends uvm_monitor;
     // Monitor AW channel: AWVALID && AWREADY handshake
     task monitor_aw_channel();
         forever begin
-            @(vif.monitor);
+            @(posedge vif.ACLK);
             if (vif.monitor.AWVALID && vif.monitor.AWREADY) begin
                 addr_info aw_info;
                 aw_info.addr = vif.monitor.AWADDR;
@@ -73,7 +73,7 @@ class axi4_lite_monitor extends uvm_monitor;
     // Monitor W channel: WVALID && WREADY handshake
     task monitor_w_channel();
         forever begin
-            @(vif.monitor);
+            @(posedge vif.ACLK);
             if (vif.monitor.WVALID && vif.monitor.WREADY) begin
                 data_info w_info;
                 w_info.data = vif.monitor.WDATA;
@@ -91,7 +91,7 @@ class axi4_lite_monitor extends uvm_monitor;
     // Monitor B channel: BVALID && BREADY handshake - matches with AW+W
     task monitor_b_channel();
         forever begin
-            @(vif.monitor);
+            @(posedge vif.ACLK);
             if (vif.monitor.BVALID && vif.monitor.BREADY) begin
                 write_response_handshakes++;
 
@@ -128,7 +128,7 @@ class axi4_lite_monitor extends uvm_monitor;
     // Monitor AR channel: ARVALID && ARREADY handshake
     task monitor_ar_channel();
         forever begin
-            @(vif.monitor);
+            @(posedge vif.ACLK);
             if (vif.monitor.ARVALID && vif.monitor.ARREADY) begin
                 addr_info ar_info;
                 ar_info.addr = vif.monitor.ARADDR;
@@ -145,7 +145,7 @@ class axi4_lite_monitor extends uvm_monitor;
     // Monitor R channel: RVALID && RREADY handshake - matches with AR
     task monitor_r_channel();
         forever begin
-            @(vif.monitor);
+            @(posedge vif.ACLK);
             if (vif.monitor.RVALID && vif.monitor.RREADY) begin
                 read_data_handshakes++;
 
