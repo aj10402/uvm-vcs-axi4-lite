@@ -36,7 +36,12 @@ module axi4_lite_assertions (
 
     // 1. Reset behavior
     property reset_assertions;
-        @(posedge aclk) disable iff ($isunknown(aresetn))
+        @(posedge aclk) disable iff ($isunknown(aresetn)   ||
+                                     $isunknown(awvalid)   ||
+                                     $isunknown(wvalid)    ||
+                                     $isunknown(bvalid)    ||
+                                     $isunknown(arvalid)   ||
+                                     $isunknown(rvalid))
         !aresetn |-> (!awvalid && !wvalid && !bvalid && !arvalid && !rvalid);
     endproperty
 
